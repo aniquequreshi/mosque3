@@ -1,0 +1,47 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    {{mosqueInfo.schedule_menu_button}}
+
+{% endblock %}
+
+{% block menu %}
+    <button class="btn btn-secondary" type="button" onclick="window.location.href = '/list';">{{mosqueInfo.schedule_menu_button}}</button>
+    <button class="btn btn-sm btn-dark" type="button" onclick="window.location.href = '/';">{{mosqueInfo.donor_menu_button}}
+    </button>
+{% endblock %}
+
+
+{% block content %}
+    <h2>{{mosqueInfo.schedule_page_title}}</h2>
+    <p>{{mosqueInfo.schedule_page_message}}</p>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>DATE</th>
+            <th>HOST</th>
+            <th>STATUS</th>
+        </tr>
+
+        </thead>
+        <tbody>
+        {% for need in needs_list %}
+            <tr>
+
+
+                <td>     {{ need.need__description }}  </td>
+                <td>{{ need.name }}  </td>
+                <td>
+                    {% if need.is_approved %}
+                        Confirmed
+                    {% else %}
+                        Pending Confirmation
+                    {% endif %}
+                </td>
+
+            </tr>
+
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

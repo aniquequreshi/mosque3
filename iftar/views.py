@@ -30,7 +30,7 @@ class DonorCreateForm(forms.ModelForm):
     class Meta:
         model = Donor
         fields = ['name', 'phone', 'need', 'donation']
-        labels = {'need': 'Nights Available', 'donation': 'Food/Cashg'}
+        labels = {'need': 'Nights Available', 'donation': 'Food/Cash'}
         #labels = {'donation': 'What you will provide', }
 #        widgets = {
 #            'need': forms.RadioSelect()
